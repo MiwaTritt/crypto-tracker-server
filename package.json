@@ -1,0 +1,30 @@
+{
+  "name": "crypto-tracker-server",
+  "version": "1.0.0",
+  "main": "dist",
+  "repository": "https://github.com/MiwaTritt/crypto-tracker-server.git",
+  "author": "MiwaTritt <tmt7rc@virginia.edu>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
+    "build": "babel src -s -D -d dist --presets env",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "test": "eslint src"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "morgan": "^1.8.0",
+    "resource-router-middleware": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  }
+}
