@@ -3,6 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import { buildSchema } from 'graphql'
+import graphqlHTTP from 'express-graphql'
+
+import schema from './graphql/coinmarketcap/coinmarketcap';
 import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
@@ -21,6 +25,12 @@ app.use(cors({
 
 app.use(bodyParser.json({
 	limit : config.bodyLimit
+}));
+
+// 
+app.use('/v1', graphqlHTTP({
+	schema: schema,
+	graphiql: true //Set to false if you don't want graphiql enabled
 }));
 
 // connect to db
