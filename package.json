@@ -2,8 +2,8 @@
   "name": "crypto-tracker-server",
   "version": "1.0.0",
   "main": "dist",
-  "repository": "https://github.com/MiwaTritt/crypto-tracker-server.git",
-  "author": "MiwaTritt <tmt7rc@virginia.edu>",
+  "repository": "https://github.com/TaraTritt/crypto-tracker-server.git",
+  "author": "TaraTritt <tmt7rc@virginia.edu>",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
