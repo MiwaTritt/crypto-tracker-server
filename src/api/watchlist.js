@@ -5,6 +5,7 @@ import CryptoSchema from "../models/Crypto";
 
 export default ({ config, db }) => {
   let router = Router();
+  const Crypto = db.model("Crypto", CryptoSchema);
 
   // INDEX - show all cryptos in watchlist
   router.get("/", (req, res) => {
@@ -13,14 +14,13 @@ export default ({ config, db }) => {
       if (err) {
         console.log(err);
       } else {
-        res.json({ message: "Watchlist found" });
+        res.json({ message: "Watchlist found", watchlist });
       }
     });
   });
 
   // CREATE - add new crypto to watchlist
   router.post("/", (req, res) => {
-    const Crypto = db.model("Crypto", CryptoSchema);
     const crypto = {
       symbol: req.body.symbol,
       name: req.body.name,
