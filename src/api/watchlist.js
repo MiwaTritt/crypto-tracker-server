@@ -20,16 +20,22 @@ export default ({ config, db }) => {
 
   // CREATE - add new crypto to watchlist
   router.post("/", (req, res) => {
-    const crypto = new Crypto({
+    const Crypto = db.model("Crypto", CryptoSchema);
+    const crypto = {
       symbol: req.body.symbol,
       name: req.body.name,
       notes: req.body.notes,
       expirationDate: req.body.expirationDate,
       active: req.body.active,
       targetPrice: req.body.targetPrice
-    });
-    crypto.save().then(() => {
-      res.json({ message: "Crypto added to watchlist" });
+    };
+    Crypto.create(crypto, (err, newCrypto) => {
+      if (err) {
+        console.log(err);
+        res.json({ message: "Error adding crypto to watchlist" });
+      } else {
+        res.json({ message: "Crypto added to watchlist", newCrypto });
+      }
     });
   });
 

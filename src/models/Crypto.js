@@ -1,16 +1,17 @@
 import mongoose from "mongoose";
 
-const Crypto = new mongoose.Schema({
-  symbol: String,
-  name: String,
+const CryptoSchema = new mongoose.Schema({
+  symbol: { type: String, required: true },
+  name: { type: String, required: true },
   notes: String,
   expirationDate: Date,
-  active: Boolean,
+  active: { type: Boolean, required: true, default: true },
   targetPrice: Number
   // user: {
   //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "User"
+  //   ref: "User",
+  //   required: true
   // }
 });
 
-export default Crypto;
+export default CryptoSchema;
