@@ -1,13 +1,11 @@
-import { version } from '../../package.json';
-import { Router } from 'express';
+import { Router } from "express";
+
+import watchlistRouter from "./watchlist";
 
 export default ({ config, db }) => {
-	let api = Router();
+  let router = Router();
 
-	// perhaps expose some API metadata at the root
-	api.get('/test', (req, res) => {
-		res.json({ version });
-	});
+  router.use("/watchlist", watchlistRouter({ config, db }));
 
-	return api;
-}
+  return router;
+};
