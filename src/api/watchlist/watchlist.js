@@ -6,6 +6,7 @@ exports.getAll = (req, res) => {
   Crypto.find({}, (err, foundWatchlist) => {
     if (err) {
       console.log(err);
+      res.json({ message: "Error retrieving watchlist" });
     } else {
       res.json({ message: "Watchlist found", watchlist: foundWatchlist });
     }
@@ -35,8 +36,21 @@ exports.get = (req, res) => {
   Crypto.findById(req.params.id, (err, foundCrypto) => {
     if (err) {
       console.log(err);
+      res.json({ message: "Error retrieving crypto" });
     } else {
-      res.render("campgrounds/show", { crypto: foundCrypto });
+      res.json({ message: "Crypto found", crypto: foundCrypto });
+    }
+  });
+};
+
+// UPDATE CAMPGROUND ROUTE
+exports.put = (req, res) => {
+  Crypto.findByIdAndUpdate(req.params.id, req.body.crypto, function(err, updatedCrypto) {
+    if (err) {
+      console.log(err);
+      res.json({ message: "Error updating crypto" });
+    } else {
+      res.json({ message: "Crypto updated", crypto: updatedCrypto });
     }
   });
 };

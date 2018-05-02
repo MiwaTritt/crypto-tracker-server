@@ -21,5 +21,10 @@ export default ({ config, db }) => {
     watchlist.get(req, res);
   });
 
+  // UPDATE - update crypto in watchlist
+  router.put("/:id", (req, res) => {
+    watchlist.put(req, res);
+  });
+
   return router;
 };
