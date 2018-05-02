@@ -54,3 +54,14 @@ exports.put = (req, res) => {
     }
   });
 };
+
+exports.delete = (req, res) => {
+  Crypto.findByIdAndRemove(req.params.id, err => {
+    if (err) {
+      console.log(err);
+      res.json({ message: "Error deleting crypto" });
+    } else {
+      res.json({ message: "Crypto deleted" });
+    }
+  });
+};

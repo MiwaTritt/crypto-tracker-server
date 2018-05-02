@@ -26,5 +26,10 @@ export default ({ config, db }) => {
     watchlist.put(req, res);
   });
 
+  // DESTROY - remove a crypto from the watchlist
+  router.delete("/:id", (req, res) => {
+    watchlist.delete(req, res);
+  });
+
   return router;
 };
