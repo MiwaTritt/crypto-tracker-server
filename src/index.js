@@ -21,6 +21,7 @@ app.use(cors({ exposedHeaders: config.corsHeaders }));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false, limit: config.bodyLimit }));
 
+// parse json
 app.use(bodyParser.json({ limit: config.bodyLimit }));
 
 // connect to db

@@ -1,11 +1,10 @@
 import fetch from "node-fetch";
 import { Router } from "express";
 
-import CryptoSchema from "../models/Crypto";
+import Crypto from "../models/crypto";
 
 export default ({ config, db }) => {
   let router = Router();
-  const Crypto = db.model("Crypto", CryptoSchema);
 
   // INDEX - show all cryptos in watchlist
   router.get("/", (req, res) => {

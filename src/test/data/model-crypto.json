@@ -1,0 +1,30 @@
+{
+  "collections": {
+    "cryptos": [
+      {
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "notes": "Bitcoin has the first mover advantage",
+        "active": true,
+        "targetPrice": "25000"
+      },
+      {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "notes":
+          "Ethereum may have scalability issues, but it's popularity as a DApp platform is undeniable",
+        "active": true,
+        "targetPrice": "2500"
+      },
+      {
+        "symbol": "EOS",
+        "name": "EOS",
+        "notes":
+          "EOS presents solutions to current blockchain platforms biggest issues, like scalability, latency, and power consumption",
+        "expirationDate": "2018-07-01",
+        "active": true,
+        "targetPrice": "35"
+      }
+    ]
+  }
+}
