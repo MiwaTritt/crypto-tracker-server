@@ -6,7 +6,7 @@ export default callback => {
       callback(mongoose);
     },
     err => {
-      console.log("Error connecting to te DB");
+      console.log("Connection error: " + err);
     }
   );
 };
