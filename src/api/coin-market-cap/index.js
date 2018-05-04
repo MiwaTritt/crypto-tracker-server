@@ -8,12 +8,12 @@ export default ({ config, db }) => {
 
   // LIST - get all coins
   router.get("/list", (req, res) => {
-    coinMarketCapAPI.getAll(req, res);
+    coinMarketCapAPI.getList(req, res);
   });
 
   // SHOW - gets more info on a specific coin
   router.get("/:id", (req, res) => {
-    coinMarketCapAPI.getAll(req, res);
+    coinMarketCapAPI.get(req, res);
   });
 
   // INDEX - gets all info on all coins but with a 100 size limit
