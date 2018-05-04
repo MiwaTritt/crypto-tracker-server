@@ -16,7 +16,7 @@ export default ({ config, db }) => {
     watchlist.createNew(req, res);
   });
 
-  // SHOW - shows more info about one crypto in watchlist
+  // SHOW - gets more info about one crypto in watchlist
   router.get("/:id", (req, res) => {
     watchlist.get(req, res);
   });
