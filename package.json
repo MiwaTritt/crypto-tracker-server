@@ -6,7 +6,7 @@
   "author": "TaraTritt <tmt7rc@virginia.edu>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
+    "dev": "nodemon -w src --exec \"babel-node src/app.js --presets env\"",
     "build": "babel src -s -D -d dist --presets env",
     "start": "node dist",
     "prestart": "npm run -s build",
@@ -20,12 +20,14 @@
   },
   "dependencies": {
     "body-parser": "^1.13.3",
-    "compression": "^1.5.2",
     "cors": "^2.7.1",
     "express": "^4.13.3",
     "mongoose": "^5.0.16",
     "morgan": "^1.8.0",
     "node-fetch": "^2.1.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.0",
     "resource-router-middleware": "^0.7.0"
   },
   "devDependencies": {
