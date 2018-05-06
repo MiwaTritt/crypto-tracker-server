@@ -15,7 +15,7 @@ exports.getList = (req, res) => {
 
 exports.get = (req, res) => {
   // Get a specific cryptos details
-  fetch("https://api.coinmarketcap.com/v2/listings/ticker/" + req.params.id)
+  fetch("https://api.coinmarketcap.com/v2/ticker/" + req.params.id)
     .then(res => res.json())
     .then(json => res.json({ crypto: json.data }))
     .catch(err => {
