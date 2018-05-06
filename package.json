@@ -26,8 +26,6 @@
     "morgan": "^1.8.0",
     "node-fetch": "^2.1.2",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^5.0.0",
     "resource-router-middleware": "^0.7.0"
   },
   "devDependencies": {
