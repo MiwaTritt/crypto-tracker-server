@@ -1,9 +1,9 @@
-import { Router } from 'express';
+let exports = (module.exports = {});
 
-export default ({ config, db }) => {
-	let routes = Router();
-
-	// add middleware here
-
-	return routes;
-}
+exports.isLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  req.flash("error", "You must be logged in");
+  res.redirect("/");
+};

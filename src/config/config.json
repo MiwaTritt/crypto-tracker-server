@@ -1,5 +1,13 @@
 {
   "port": 8080,
   "bodyLimit": "100kb",
-  "corsHeaders": ["Link"]
+  "corsHeaders": ["Link"],
+  "session": {
+    "secret": "tmpsecret",
+    "resave": true,
+    "saveUninitialized": true
+  },
+  "cookie": {
+    "secure": false
+  }
 }

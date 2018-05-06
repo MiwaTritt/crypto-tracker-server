@@ -3,6 +3,10 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import passport from "passport";
+import flash from "connect-flash";
+import session from "express-session";
 
 import initializeDb from "./lib/db";
 import middleware from "./middleware";
@@ -23,6 +27,22 @@ app.use(bodyParser.urlencoded({ extended: false, limit: config.bodyLimit }));
 
 // parse json
 app.use(bodyParser.json({ limit: config.bodyLimit }));
+
+// read cookies
+app.use(cookieParser());
+
+// passport setup
+app.use(
+  session({
+    secret: config.session.secret,
+    cookie: config.cookie.secure,
+    resave: config.session.resave, // TODO may need to change based on future session store
+    saveUninitialized: config.session.saveUninitialized
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // connect to db
 initializeDb(db => {
